@@ -25,7 +25,7 @@ namespace Src.Shared.Repository
                     }
         public async Task<IList<User>> GetUserByIdAsync(int id)
         {
-            var query = await _connection.QueryAsync<User>(UserQuery.GetUserByIdQuery(), new
+            var query = await _connection.QueryAsync<User>(UserQuery.GetUserByIdQuery, new
             {
                 id
             });
