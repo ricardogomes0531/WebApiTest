@@ -11,17 +11,17 @@ namespace Src.Features.GetUserById
     [Route("/api/v1/user")]
         public class UserController : ControllerBase
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IGetUserByIdUseCase _useCase;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IGetUserByIdUseCase useCase)
         {
-            _userRepository = userRepository;
+            _useCase = useCase;
                     }
 
         [HttpGet]
         public async Task<IActionResult> GetUserByIdAsync(int id)
         {
-            var user = await _userRepository.GetUserByIdAsync(id);
+            var user = await _useCase.ExecuteAsync(id);
             return Ok(user);
                
         }
