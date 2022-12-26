@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Src.Shared.Domain;
 using Src.Shared.Repository.Interface;
+using Src.Shared.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +11,7 @@ namespace Src.Features.GetUserById
 {
     [ApiController]
     [Route("/api/v1/user")]
-        public class UserController : ControllerBase
+        public class UserController : ResultController
     {
         private readonly IGetUserByIdUseCase _useCase;
 
@@ -22,7 +24,7 @@ namespace Src.Features.GetUserById
         public async Task<IActionResult> GetUserByIdAsync(int id)
         {
             var user = await _useCase.ExecuteAsync(id);
-            return Ok(user);
+            return GetResult<User>(user);
                
         }
     }
