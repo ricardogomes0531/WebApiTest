@@ -1,4 +1,5 @@
 ﻿using Src.Shared.Domain;
+using Src.Shared.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,6 @@ namespace Src.Features.GetUserById
 {
     public interface IGetUserByIdUseCase
     {
-        Task<IList<User>> ExecuteAsync(int id);
+        Task<DataResult> ExecuteAsync(int id);
     }
 }

@@ -32,7 +32,9 @@ namespace Tests.Features.GetUserById
 
             var useCase = new GetUserByIdUseCase(_mock.Object);
             var call = useCase.ExecuteAsync(19);
-            Assert.Equal(call.Result[0].Nome, "ricardo");
+            Assert.NotNull(call.Result.Data);
+            Assert.True(call.Result.IsValid);
+            Assert.Null(call.Result.Errors);
         }
     }
 }
