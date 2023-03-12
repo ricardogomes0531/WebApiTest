@@ -32,6 +32,14 @@ namespace Src.Shared.Repository
             return query.ToList();
         }
 
+public async Task<bool> InsertUser(User user)
+        {
+            var query = await _connection.ExecuteAsync(UserQuery.InsertUserQuery, new { user.Nome });
+            if (query > 0)
+                return true;
+
+            return false;
+        }
 
 
     }

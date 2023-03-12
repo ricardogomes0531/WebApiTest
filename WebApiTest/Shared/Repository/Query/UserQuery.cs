@@ -9,6 +9,11 @@ namespace Src.Shared.Repository.Query
     {
         public static string GetUserByIdQuery=>
                     @"select * from usuario where id=@Id;";
-        
+
+        public static string InsertUserQuery =>
+                    @"insert into usuario(nome) values(@Nome);";
+
+
+
     }
 }

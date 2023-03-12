@@ -9,5 +9,6 @@ namespace Src.Shared.Repository.Interface
     public interface IUserRepository
     {
         Task<IList<User>> GetUserByIdAsync(int id);
+        Task<bool> InsertUser(User user);
     }
 }
